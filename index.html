@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texno GAME ZONE</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas class="matrix-canvas" id="matrixCanvas"></canvas>
+
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <h1 class="login-title">Texno</h1>
+            <p class="login-subtitle">GAME ZONE PORTAL</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label class="input-label">
+                        <i class="fas fa-envelope"></i>
+                        Access Terminal
+                    </label>
+                    <input type="email" class="login-input" id="email" placeholder="Enter access terminal" required>
+                </div>
+                <div class="input-group">
+                    <label class="input-label">
+                        <i class="fas fa-lock"></i>
+                        Security Code
+                    </label>
+                    <input type="password" class="login-input" id="password" placeholder="Enter security code" required>
+                </div>
+                <div class="error-message" id="errorMessage">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Access denied. Invalid credentials.
+                </div>
+                <button type="submit" class="login-button">
+                    <i class="fas fa-bolt"></i>
+                    JACK IN
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-text">
+                        <h1>Texno</h1>
+                        <p>GAME ZONE PORTAL</p>
+                    </div>
+                </div>
+                <button class="disconnect-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Disconnect
+                </button>
+            </div>
+        </header>
+
+        <nav class="navigation">
+            <div class="nav-content">
+                <button class="nav-tab active" onclick="switchTab('online')" id="onlineTab">
+                    <i class="fas fa-wifi"></i>
+                    ONLINE MATRIX
+                </button>
+                <button class="nav-tab" onclick="switchTab('offline')" id="offlineTab">
+                    <i class="fas fa-hdd"></i>
+                    LOCAL STORAGE
+                </button>
+            </div>
+        </nav>
+
+        <main class="game-container">
+            <div class="section-header">
+                <h2 class="section-title" id="sectionTitle">ONLINE MATRIX GAMES</h2>
+                <p class="section-subtitle" id="sectionSubtitle">Connect to the digital battlefield</p>
+            </div>
+            <div class="game-grid" id="gameGrid">
+            </div>
+        </main>
+    </div>
+
+    <div class="game-window" id="gameWindow">
+        <div class="window-header">
+            <div class="window-title">
+                <div class="window-title-icon">
+                    <img id="windowTitleIcon" src="/placeholder.svg" alt="Game Icon">
+                </div>
+                <div class="window-title-text" id="windowTitle">Game Title</div>
+            </div>
+            <div class="window-controls">
+                <div class="window-control window-minimize" onclick="minimizeWindow()">-</div>
+                <div class="window-control window-maximize" onclick="maximizeWindow()">+</div>
+                <div class="window-control window-close" onclick="closeWindow()">×</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="window-loading">
+                <div class="loading-spinner"></div>
+                <div class="loading-text" id="loadingText">Initializing game...</div>
+                <div class="loading-progress">
+                    <div class="loading-bar" id="loadingBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
